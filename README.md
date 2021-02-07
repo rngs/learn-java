@@ -35,6 +35,25 @@ BUILD SUCCESSFUL in 1s
 - 実行
 
 ```
-$ java -jar app/build/libs/app.jar
-Hello World!
+$ java -jar GradleSpringBoot/app/build/libs/app.jar
+# 別コンソールで実行
+$ curl localhost:8080
+Greetings from Spring Boot!
+```
+
+# UT実行
+
+- 実行
+
+```
+$ cd GradleSpringBoot/
+$ gradle test
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Task :app:test
+2021-02-25 14:25:16.406  INFO 273 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-25 14:25:16.550  INFO 273 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+
+BUILD SUCCESSFUL in 1m 28s
+3 actionable tasks: 3 executed
 ```
