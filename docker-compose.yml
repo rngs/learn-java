@@ -1,0 +1,9 @@
+version: '3'
+services:
+    gradle:
+      container_name: builder_gradle
+      build: ./docker_files/gradle
+      tty: true
+      working_dir: /docker/src
+      volumes:
+        - ./:/docker
