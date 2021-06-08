@@ -1,9 +1,19 @@
 version: '3'
 services:
-    gradle:
-      container_name: builder_gradle
-      build: ./docker_files/gradle
+    builder:
+      container_name: builder_container
+      build: ./docker_files/builder
       tty: true
       working_dir: /docker/src
       volumes:
         - ./:/docker
+    web:
+      container_name: web_container
+      build: ./docker_files/web
+      tty: true
+      working_dir: /docker/src
+      depends_on:
+        - builder
+      volumes:
+        - ./:/docker
+                

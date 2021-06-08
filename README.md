@@ -15,18 +15,23 @@ $ docker-compose build
 - コンテナ起動
 
 ```
-$ dokcer-compose up -d
+$ docker-compose up -d
 ```
 
 # 実行
 
 ## jar作成 ~ 実行
 
+- 
+
+```
+$ docker-compose exec builder bash
+```
+
 - jar 作成
 
 ``` sh
-$ cd /docker/src/GradleSpringBoot
-$ ./gradlew build
+$ GradleSpringBoot/gradlew build
 
 BUILD SUCCESSFUL in 1s
 7 actionable tasks: 7 up-to-date
