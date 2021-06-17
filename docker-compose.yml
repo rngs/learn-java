@@ -1,0 +1,20 @@
+version: '3'
+services:
+    maven:
+      container_name: maven_container
+      build: ./
+    #   tty: true
+    #   working_dir: /adv/hello
+    #   volumes:
+    #     - ./:/docker
+
+# version: '3'
+# services:
+#     maven:
+#         container_name: maven_container
+#         build: ./dockerFiles/maven
+#         # image: maven:3.8.1-jdk-8
+#         tty: true
+#         working_dir: /docker
+#         volumes:
+#             - ./:/docker
