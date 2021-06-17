@@ -1,16 +1,11 @@
-FROM maven:3.8.1-jdk-8
+# build
+FROM maven
+WORKDIR /usr/src/app
+COPY pom.xml .
+RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline
+COPY . .
+RUN mvn -B -e -o -T 1C verify
 
-COPY src /app/src/
-COPY pom.xml /app/
-WORKDIR /app
-RUN mvn clean package test
-
-# RUN mkdir /adv; cd /adv; mvn archetype:generate \
-#     -DarchetypeArtifactId=maven-archetype-quickstart \
-#     -DinteractiveMode=false \
-#     -DgroupId=com.sample \
-#     -DartifactId=hello
-
-# RUN pwd; ls -l
-
-# RUN cd /adv/hello; cat src/test/java/com/sample/AppTest.java
+# package without maven
+FROM openjdk
+COPY --from=0 /usr/src/app/target/*.jar ./

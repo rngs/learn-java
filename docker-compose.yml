@@ -2,8 +2,8 @@ version: '3'
 services:
     maven:
       container_name: maven_container
-      build: ./
-    #   tty: true
+      build: ./dockerFiles/maven
+      tty: true
     #   working_dir: /adv/hello
     #   volumes:
     #     - ./:/docker
